@@ -8,9 +8,14 @@ CREATION DUNE LISTE
 RAFFRAISCHISSEMENT DU COURS en json
 
 --------------------------
+LISTVIEW
+https://www.youtube.com/watch?v=Lu27Hx2rE_I
 
+https://www.youtube.com/watch?v=0AOeUK8o85s
+https://www.youtube.com/watch?v=mU-yjen_57w
+https://www.youtube.com/watch?v=Eh3b6Q6dC5o
 
-
+https://www.youtube.com/watch?v=GG10QPrRC3w
 
 // Get new data rows
         public static async Task GetAllNewsAsync(Action<IEnumerable<Car>> action) {
