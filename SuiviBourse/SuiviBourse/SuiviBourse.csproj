@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataSource\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="View\AlertListViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

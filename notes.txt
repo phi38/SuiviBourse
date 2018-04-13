@@ -1,0 +1,24 @@
+
+https://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getCours?code=FR0000120073&place=XPAR&codif=ISIN
+
+
+V1
+--------------------------
+CREATION DUNE LISTE
+RAFFRAISCHISSEMENT DU COURS en json
+
+--------------------------
+
+
+
+
+// Get new data rows
+        public static async Task GetAllNewsAsync(Action<IEnumerable<Car>> action) {
+
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage response = await httpClient.GetAsync("https://api.myjson.com/bins/jly7p");
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK) {
+                var list = JsonConvert.DeserializeObject<IEnumerable<Car>>(await response.Content.ReadAsStringAsync());
+                action(list);
+            }

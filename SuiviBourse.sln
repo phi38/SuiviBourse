@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviBourse.iOS", "SuiviBou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviBourse.UWP", "SuiviBourse\SuiviBourse.UWP\SuiviBourse.UWP.csproj", "{F85EFC5D-5EF4-4EF8-9E1C-D65829EEA3AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviBourse", "SuiviBourse\SuiviBourse\SuiviBourse.csproj", "{4D16A77E-46E3-44C6-9DB5-A35D310887CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuiviBourse", "SuiviBourse\SuiviBourse\SuiviBourse.csproj", "{4D16A77E-46E3-44C6-9DB5-A35D310887CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9C0472A-3122-4C61-95CC-13FA8268D78E}"
+	ProjectSection(SolutionItems) = preProject
+		notes.txt = notes.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

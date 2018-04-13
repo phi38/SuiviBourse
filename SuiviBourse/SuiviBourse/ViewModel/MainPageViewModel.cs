@@ -1,5 +1,4 @@
-﻿using SuiviBourse.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -18,7 +17,7 @@ namespace SuiviBourse.ViewModel
             this.page = page;
             NewWinCommand = new Command<string>((key) =>
             {
-                page.Navigation.PushAsync(new AlertListViewPage());
+                //page.Navigation.PushAsync(new AlertListViewPage());
                 //page.DisplayAlert("No Selection", "You did not select any Garages", "OK", null);
             });
         }
