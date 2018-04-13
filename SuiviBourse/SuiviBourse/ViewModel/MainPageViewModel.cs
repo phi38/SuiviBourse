@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SuiviBourse.DataSource;
+using SuiviBourse.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -9,11 +11,16 @@ namespace SuiviBourse.ViewModel
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
+
+        public List<Alerte> ListeAlerte { get; set; }
+
         public ICommand NewWinCommand { protected set; get; }
         Page page;
 
         public MainPageViewModel( Page page)
         {
+            ListeAlerte = DataSourceMock1.GetAlerte();
+
             this.page = page;
             NewWinCommand = new Command<string>((key) =>
             {
