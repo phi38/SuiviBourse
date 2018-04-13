@@ -11,7 +11,11 @@ namespace SuiviBourse.DataSource
         {
             List<Alerte> listAlert = new List<Alerte>()
             {
+                new Alerte ("FR0000120073", "AIR LIQUIDE"),
+                new Alerte ("FR0000120073", "AIR LIQUIDE"),
+                  new Alerte ("FR0000120073", "AIR LIQUIDE"),
                 new Alerte ("FR0000120073", "AIR LIQUIDE")
+
             };
             return listAlert;
         }

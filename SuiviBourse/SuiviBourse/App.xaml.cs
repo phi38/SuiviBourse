@@ -13,8 +13,9 @@ namespace SuiviBourse
 		{
 			InitializeComponent();
 
-			MainPage = new SuiviBourse.MainPage();
-		}
+            //MainPage = new SuiviBourse.MainPage();
+            MainPage = new SuiviBourse.View.AlerteListViewPage();
+        }
 
 		protected override void OnStart ()
 		{
