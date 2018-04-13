@@ -5,13 +5,22 @@
   <ListView x:Name="MyListView"
             ItemsSource="{Binding ListeAlerte}"
             ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
+            CachingStrategy="RecycleElement" HasUnevenRows="True">
             
     <!--Built in Cells-->
     <ListView.ItemTemplate>
-        <DataTemplate>
-                <TextCell Text="{Binding Libelle}" Detail="{Binding Cours}"/>
-        </DataTemplate>
+            <DataTemplate>
+                <!--
+                <TextCell Text="{Binding Libelle}" Detail="{Binding Cours}"/> -->
+                <ViewCell>
+                    <ViewCell.View >
+                        <StackLayout Spacing="5">
+                            <Label Text="{Binding Libelle}" FontSize="20"/>
+                            <Label Text="{Binding Cours}"  FontSize="18"/>
+                        </StackLayout>
+                    </ViewCell.View >
+                </ViewCell>
+            </DataTemplate>
     </ListView.ItemTemplate>
     
     <!--Custom View Cells-->
