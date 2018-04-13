@@ -31,7 +31,8 @@ namespace SuiviBourse.View
                         };
                         MyListView.ItemsSource = Items;
                         */
-            MyListView.ItemsSource = vm.ListeAlerte   ;
+            // MyListView.ItemsSource = vm.ListeAlerte   ;
+            BindingContext = vm;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
