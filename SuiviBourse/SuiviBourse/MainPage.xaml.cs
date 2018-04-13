@@ -1,17 +1,25 @@
-﻿using System;
+﻿
+using SuiviBourse.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SuiviBourse
 {
 	public partial class MainPage : ContentPage
 	{
-		public MainPage()
+   
+
+        public MainPage()
 		{
 			InitializeComponent();
-		}
+           //  BindingContext = new MainPageViewModel(this);
+        }
+
+
 	}
 }
