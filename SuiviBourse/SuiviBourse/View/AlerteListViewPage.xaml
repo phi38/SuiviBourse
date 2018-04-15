@@ -14,10 +14,17 @@
                 <TextCell Text="{Binding Libelle}" Detail="{Binding Cours}"/> -->
                 <ViewCell>
                     <ViewCell.View >
-                        <StackLayout Spacing="5">
-                            <Label Text="{Binding Libelle}" FontSize="20"/>
-                            <Label Text="{Binding Cours}"  FontSize="18"/>
-                        </StackLayout>
+                        <Grid>
+
+                                <Label Text="{Binding Libelle}" FontSize="16" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="1"/>
+
+                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="0" Grid.Column="3"/>
+                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="2"/>
+                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="3"/>
+                        </Grid>
                     </ViewCell.View >
                 </ViewCell>
             </DataTemplate>
