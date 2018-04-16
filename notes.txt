@@ -1,11 +1,35 @@
 
-https://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getCours?code=FR0000120073&place=XPAR&codif=ISIN
-
-
 V1
 --------------------------
-CREATION DUNE LISTE
-RAFFRAISCHISSEMENT DU COURS en json
+* CREATION DUNE LISTE
+L
+- recuperation json
+- RAFFRAISCHISSEMENT DU COURS en json
+- icone
+M
+- sqllite rwd
+M
+- edit / del / add : Alerte
+J
+-	item list mis en forme
+V
+- 
+
+
+
+
+
+--------------------------------
+url json
+1 action
+https://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/blocs/getHeaderFiche?code=FR0000120073&place=XPAR&codif=ISIN
+
+Les indices (or/petrol/liste 5actions_var)
+https://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getHeaderBourse
+
+
+https://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getCours?code=FR0000120073&place=XPAR&codif=ISIN
+
 
 --------------------------
 LISTVIEW
@@ -16,6 +40,11 @@ https://www.youtube.com/watch?v=mU-yjen_57w
 https://www.youtube.com/watch?v=Eh3b6Q6dC5o
 
 https://www.youtube.com/watch?v=GG10QPrRC3w
+
+
+-----------------------
+Json
+https://www.yvonh.com/newtonsoft-la-librairie-tres-puissante-pour-manipuler-les-chaines-json/
 
 // Get new data rows
         public static async Task GetAllNewsAsync(Action<IEnumerable<Car>> action) {
