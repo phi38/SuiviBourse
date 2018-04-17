@@ -1,10 +1,12 @@
 ﻿using SuiviBourse.DataSource;
 using SuiviBourse.Model;
 using SuiviBourse.ViewModel;
+using SuiviBourse.Tools;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -59,10 +61,20 @@ namespace SuiviBourse.View
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            string sentence = "-1,68%</div>";
+            int i = sentence.IndexOf('%');
+
+            float res = Tools.Utils.ExtractFloat(sentence, '%');
+
+            string sentence2 = "102,700\n\t\t\t\t€";
+
+            float res2 = Tools.Utils.ExtractFloat(sentence2, '\n');
 
 
-            h = await DataSourceMock1.GetTasksAsync();
+            //h = await DataSourceMock1.GetTasksAsync();
             Console.WriteLine("OK : "+h.ToString() );
         }
+
+        
     }
 }

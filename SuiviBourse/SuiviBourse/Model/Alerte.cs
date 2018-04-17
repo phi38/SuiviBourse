@@ -4,11 +4,12 @@ using System.Text;
 
 namespace SuiviBourse.Model
 {
-    class Alerte
+    class Alerte : BourseAction
     {
         public Alerte()
         {
         }
+
         public Alerte( string code, string libelle )
         {
             Code = code;
@@ -26,11 +27,9 @@ namespace SuiviBourse.Model
             AlerteHVar= alerteHVar;
             AlerteBVar= alerteBVar;
         }
-        public string Code { get => code; set => code = value; }
-        public string Libelle { get => libelle; set => libelle = value; }
-        public float Cours { get => cours; set => cours = value; }
 
-        public float Variation { get; set; }
+
+
         public float AlerteHCours { get; set; }
         public float AlerteBCours { get; set; }
         public float AlerteHVar { get; set; }
