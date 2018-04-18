@@ -8,13 +8,16 @@ namespace SuiviBourse.Model
     {
         public BourseAction()
         {
-
+            Cours = 0;
+            Variation = 0;
         }
 
         public BourseAction(string code, string libelle)
         {
             Code = code;
             Libelle = libelle;
+            Cours = 0;
+            Variation = 0;
         }
 
         public BourseAction(string code, string libelle, float cours, float variation)

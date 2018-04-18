@@ -12,15 +12,16 @@ namespace SuiviBourse.ViewModel
     class MainPageViewModel : INotifyPropertyChanged
     {
 
-        public List<Alerte> ListeAlerte { get; set; }
+        //public List<Alerte> ListeAlerte { get; set; }
+        public List<BourseAction> BourseActionList{ get; set; }
 
         public ICommand NewWinCommand { protected set; get; }
         Page page;
 
         public MainPageViewModel( Page page)
         {
-            ListeAlerte = DataSourceMock1.GetAlerte();
-
+            //ListeAlerte = DataSourceMock1.;
+            BourseActionList = DataSourceMock1.GetBourseActionList();
             this.page = page;
             NewWinCommand = new Command<string>((key) =>
             {

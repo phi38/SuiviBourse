@@ -23,7 +23,13 @@ namespace SuiviBourse.DataSource
 
         public async Task<List<BourseAction>> GetCoursDataAsync(List<BourseAction> list)
         {
-            return null;
+            List < BourseAction > listres = new List<BourseAction>();
+            foreach (BourseAction action in list)
+            {
+                BourseAction actionRes  = await GetCoursDataAsync(action);
+                listres.Add(actionRes);
+            }
+            return listres;
         }
 
         public async Task<BourseAction> GetCoursDataAsync(BourseAction actionBourse)
@@ -31,7 +37,7 @@ namespace SuiviBourse.DataSource
 
             RootObject rootObject =null;
 
-            var uri = new Uri(string.Format(URI_ALERT, string.Empty));
+            var uri = new Uri(URI_ALERT+actionBourse.Code);
 
             try
             {
@@ -40,15 +46,15 @@ namespace SuiviBourse.DataSource
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     rootObject = JsonConvert.DeserializeObject<RootObject>(content);
-                   // actionBourse.Cours = rootObject.HeaderFiche.ValorisationHeaderFiche;
-                    //actionBourse.Variation = rootObject.HeaderFiche.VariationHeaderFiche;
+                    actionBourse.Cours = Tools.Utils.ExtractFloat(rootObject.HeaderFiche.ValorisationHeaderFiche, '\n'); 
+                    actionBourse.Variation = Tools.Utils.ExtractFloat(rootObject.HeaderFiche.VariationHeaderFiche, '>', '%');
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
-            return null;
+            return actionBourse;
         }
 
 

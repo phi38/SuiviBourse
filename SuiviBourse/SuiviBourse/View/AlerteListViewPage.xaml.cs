@@ -11,24 +11,26 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.Generic;
 
 namespace SuiviBourse.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlerteListViewPage : ContentPage
     {
+        BourseRestService bourseRestService;
+        List<BourseAction> listBourseAction;
 
-
-
-        RootObject h;
-        // public ObservableCollection<string> Items { get; set; }
         MainPageViewModel vm;
         public AlerteListViewPage()
         {
+            listBourseAction = DataSourceMock1.GetBourseActionList();
+            bourseRestService = new BourseRestService();
             InitializeComponent();
             vm = new MainPageViewModel(this);
+            vm.BourseActionList = listBourseAction;
             Console.WriteLine("OK = ");
-
+            
             /*
                         Items = new ObservableCollection<string>
                         {
@@ -61,18 +63,11 @@ namespace SuiviBourse.View
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            string sentence = "-1,68%</div>";
-            int i = sentence.IndexOf('%');
-
-            float res = Tools.Utils.ExtractFloat(sentence, '%');
-
-            string sentence2 = "102,700\n\t\t\t\t€";
-
-            float res2 = Tools.Utils.ExtractFloat(sentence2, '\n');
-
-
-            //h = await DataSourceMock1.GetTasksAsync();
-            Console.WriteLine("OK : "+h.ToString() );
+            /*
+            listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
+            vm.BourseActionList = listBourseAction;
+            */
+            Console.WriteLine("OK : "+ listBourseAction.ToString() );
         }
 
         

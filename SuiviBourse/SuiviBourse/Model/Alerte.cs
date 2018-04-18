@@ -4,24 +4,38 @@ using System.Text;
 
 namespace SuiviBourse.Model
 {
-    class Alerte : BourseAction
+    class Alerte 
     {
         public Alerte()
         {
+            AlerteHCours = 0;
+            AlerteBCours = 0;
+            AlerteHVar = 0;
+            AlerteBVar = 0;
         }
 
-        public Alerte( string code, string libelle )
+        public Alerte(BourseAction bourseAction)
         {
-            Code = code;
-            Libelle = libelle;
+            this.bourseAction = bourseAction;
+            AlerteHCours = 0;
+            AlerteBCours = 0;
+            AlerteHVar = 0;
+            AlerteBVar = 0;
         }
 
-       
-        public Alerte(string code, string libelle , float variation , float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
+
+        public Alerte(string code, string libelle, float cours, float variation, float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
         {
-            Code = code;
-            Libelle = libelle;
-            Variation = variation;
+            bourseAction = new BourseAction(code, libelle, cours, variation);
+            AlerteHCours = alerteHCours;
+            AlerteBCours = alerteBCours;
+            AlerteHVar = alerteHVar;
+            AlerteBVar = alerteBVar;
+        }
+
+        public Alerte(string code, string libelle , float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
+        {
+            bourseAction = new BourseAction(code, libelle);
             AlerteHCours = alerteHCours;
             AlerteBCours =  alerteBCours;
             AlerteHVar= alerteHVar;
@@ -34,12 +48,12 @@ namespace SuiviBourse.Model
         public float AlerteBCours { get; set; }
         public float AlerteHVar { get; set; }
         public float AlerteBVar { get; set; }
+        public BourseAction BourseAction { get => bourseAction; set => bourseAction = value; }
 
 
-        private string code;
-        private string libelle;
-        private float cours;
+        private BourseAction bourseAction;
 
 
+       
     }
 }
