@@ -35,8 +35,6 @@ namespace SuiviBourse.DataSource
         public async Task<BourseAction> GetCoursDataAsync(BourseAction actionBourse)
         { 
 
-            RootObject rootObject =null;
-
             var uri = new Uri(URI_ALERT+actionBourse.Code);
 
             try
@@ -45,7 +43,7 @@ namespace SuiviBourse.DataSource
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    rootObject = JsonConvert.DeserializeObject<RootObject>(content);
+                    RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(content);
                     actionBourse.Cours = Tools.Utils.ExtractFloat(rootObject.HeaderFiche.ValorisationHeaderFiche, '\n'); 
                     actionBourse.Variation = Tools.Utils.ExtractFloat(rootObject.HeaderFiche.VariationHeaderFiche, '>', '%');
                 }
@@ -56,10 +54,6 @@ namespace SuiviBourse.DataSource
             }
             return actionBourse;
         }
-
-
-
-
 
     }
 }

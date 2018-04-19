@@ -1,13 +1,59 @@
 
+
+========================================================== 
+ Timer
+ ---------------------------------------------------------
+ Device.StartTimer(new TimeSpan(0, 0, 0, 0, 1000), RefreshListes);
+private bool RefreshListes()
+        {
+            Console.WriteLine(  "OK: "+count++ );
+            return true; // or false to stop
+        }
+
+
+OU
+
+
+class TimerExampleState {
+    public int counter = 0;
+    public Timer tmr;
+}
+
+    TimerExampleState s = new TimerExampleState();
+
+    // Create the delegate that invokes methods for the timer.
+    TimerCallback timerDelegate = new TimerCallback(CheckStatus);
+
+    // Create a timer that waits one second, then invokes every second.
+    Timer timer = new Timer(timerDelegate, s, 1000, 1000);
+    
+
+		https://stackoverflow.com/questions/37203371/timer-in-xamarin-forms
+		https://developer.xamarin.com/api/type/System.Threading.Timer/
 ==========================================================
 RestService
 ----------------------------------------------------------
-
+var response = await httpClientAlerte.GetAsync(uri);
+ if (response.IsSuccessStatusCode)
+ {
+       var content = await response.Content.ReadAsStringAsync();
+       rootObject = JsonConvert.DeserializeObject<RootObject>(content);
 
 ==========================================================
 ListView
 ----------------------------------------------------------
+<ListView x:Name="MyListView"
+            ItemsSource="{Binding ListeAlerte}"
 
+public AlerteListViewPage()
+{
+    InitializeComponent();
+    vm = new MainPageViewModel(this);
+	BindingContext = vm;	
+			
+ public MainPageViewModel( Page page)
+{
+    ListeAlerte = DataSourceMock1.GetAlerte();
 
 
 

@@ -17,7 +17,9 @@ namespace SuiviBourse
             MainPage = new SuiviBourse.View.AlerteListViewPage();
         }
 
-		protected override void OnStart ()
+
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

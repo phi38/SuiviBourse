@@ -2,17 +2,17 @@
 V1
 --------------------------
 * CREATION DUNE LISTE
-L
+=>
 - recuperation json
 - RAFFRAISCHISSEMENT DU COURS en json
 - icone
-M
+=>
 - sqllite rwd
 M
 - edit / del / add : Alerte
-J
+=>
 -	item list mis en forme
-V
+=>
 - 
 
 

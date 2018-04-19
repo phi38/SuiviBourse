@@ -1,0 +1,6 @@
+
+
+
+ * Parse de la reponse rest 
+ * Injection de dependance (liste action)
+ * Timer passer la method dans la structure 
