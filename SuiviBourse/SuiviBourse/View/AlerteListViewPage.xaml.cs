@@ -28,6 +28,7 @@ namespace SuiviBourse.View
             bourseRestService = new BourseRestService();
             InitializeComponent();
             vm = new MainPageViewModel(this);
+            vm.initListWithRef(ref listBourseAction );
             BindingContext = vm;
         }
 

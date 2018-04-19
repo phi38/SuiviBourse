@@ -12,31 +12,28 @@ namespace SuiviBourse.ViewModel
     class MainPageViewModel : INotifyPropertyChanged
     {
 
-        //public List<BourseAction> BourseActionList { get; set; }
+       
 
         private List<BourseAction> bourseActionList;
 
-        /*
-                public List<BourseAction> GetBourseActionList()
-                {
-                    return BourseActionList;
-                }
 
-                public void SetBourseActionList( List<BourseAction> _bourseActionList)
-                {
-                    BourseActionList = _bourseActionList;
-                }
-         */
-
+        //public List<BourseAction> BourseActionList { get; set; }
         public List<BourseAction> BourseActionList { get => bourseActionList; set => bourseActionList = value; }
+
+        public void initListWithRef(ref List<BourseAction> _bourseActionList)
+        {
+            this.bourseActionList = _bourseActionList;
+        }
+
+       
 
         Page page;
         public ICommand NewWinCommand { protected set; get; }
         public MainPageViewModel( Page page)
         {
             //ListeAlerte = DataSourceMock1.;
-            //SetBourseActionList(DataSourceMock1.GetBourseActionList());
-            BourseActionList = DataSourceMock1.GetBourseActionList();
+          //  initListWithRef(ref DataSourceMock1.GetBourseActionList());
+           // BourseActionList = DataSourceMock1.GetBourseActionList();
             //BourseActionList = DataSourceMock1.GetBourseActionList();
             this.page = page;
             NewWinCommand = new Command<string>((key) =>
