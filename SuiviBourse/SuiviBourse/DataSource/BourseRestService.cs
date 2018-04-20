@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SuiviBourse.DataSource
             httpClientAlerte.MaxResponseContentBufferSize = 256000;
         }
 
+
         public async Task<List<BourseAction>> GetCoursDataAsync(List<BourseAction> list)
         {
             List < BourseAction > listres = new List<BourseAction>();
@@ -32,6 +34,19 @@ namespace SuiviBourse.DataSource
             return listres;
         }
 
+
+        public async Task<List<BourseAction>> GetCoursDataAsync(IEnumerator<BourseAction> it)
+        {
+            List<BourseAction> listres = new List<BourseAction>();
+            while (it.MoveNext())
+            {
+                BourseAction actionRes = await GetCoursDataAsync(it.Current);
+                listres.Add(actionRes);
+            }
+            return listres;
+        }
+
+        
         public async Task<BourseAction> GetCoursDataAsync(BourseAction actionBourse)
         { 
 

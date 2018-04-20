@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace SuiviBourse.Model
 {
-    public class BourseAction
+    public class BourseAction : INotifyPropertyChanged
     {
         public BourseAction()
         {
@@ -30,7 +31,32 @@ namespace SuiviBourse.Model
 
         public string Code { get; set ; }
         public string Libelle { get; set; }
-        public float Cours { get ; set; }
-        public float Variation { get; set; }
+        float cours;
+        float variation;
+        public float Cours {
+            get { return cours; }
+            set
+            {
+                cours = value;
+                OnPropertyChanged("Cours");
+            }
+        }
+        public float Variation
+        {
+            get { return variation; }
+            set
+            {
+                variation = value;
+                OnPropertyChanged("Variation");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged( string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

@@ -5,25 +5,29 @@
   <ListView x:Name="MyListView"
             ItemsSource="{Binding BourseActionList}"
             ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement" HasUnevenRows="True">
+            CachingStrategy="RecycleElement" HasUnevenRows="True"
+
+            >
             
     <!--Built in Cells-->
     <ListView.ItemTemplate>
             <DataTemplate>
                 <!--
                 <TextCell Text="{Binding Libelle}" Detail="{Binding Cours}"/> -->
-                <ViewCell>
+                <ViewCell >
                     <ViewCell.View >
-                        <Grid>
-
-                                <Label Text="{Binding Libelle}" FontSize="16" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="0"/>
-                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="1"/>
-
-                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="0" Grid.Column="2"/>
-                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="0" Grid.Column="3"/>
-                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="2"/>
-                                <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="3"/>
+                        <Grid  >
+                            <Grid.RowDefinitions>
+                               
+                            </Grid.RowDefinitions>
+                            <Label Margin="10" Text="{Binding Libelle, Mode=TwoWay}" FontSize="16" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                            <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="0"/>
+                            <Label Text="{Binding Variation}"  FontSize="14"  Grid.Row="1" Grid.Column="1"/>
+                          
+                            <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="0" Grid.Column="2"/>
+                            <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="0" Grid.Column="3"/>
+                            <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="2"/>
+                            <Label Text="{Binding Cours}"  FontSize="14"  Grid.Row="1" Grid.Column="3"/>
                         </Grid>
                     </ViewCell.View >
                 </ViewCell>

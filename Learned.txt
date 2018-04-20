@@ -55,8 +55,12 @@ public AlerteListViewPage()
 {
     ListeAlerte = DataSourceMock1.GetAlerte();
 
-
-
+==========================================================
+ListView Change
+----------------------------------------------------------
+	ObservableCollection as list (to be inform for add/delete)
+	+ 
+	BourseAction : INotifyPropertyChanged avec dans le set   OnPropertyChanged("Cours");
 ==========================================================
 REgHEx or Split
 ----------------------------------------------------------

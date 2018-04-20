@@ -2,6 +2,7 @@
 using SuiviBourse.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
@@ -12,13 +13,14 @@ namespace SuiviBourse.ViewModel
     class MainPageViewModel : INotifyPropertyChanged
     {
 
-        private List<BourseAction> bourseActionList;
+        //private List<BourseAction> bourseActionList;
 
-        public List<BourseAction> BourseActionList { get => bourseActionList; set => bourseActionList = value; }        //public List<BourseAction> BourseActionList { get; set; }
+        //public List<BourseAction> BourseActionList { get => bourseActionList; set => bourseActionList = value; }        //public List<BourseAction> BourseActionList { get; set; }
+        public ObservableCollection<BourseAction> BourseActionList { get; set; }
 
-        public void initListWithRef(ref List<BourseAction> _bourseActionList)
+        public void InitListWithRef(ref List<BourseAction> _bourseActionList)
         {
-            this.bourseActionList = _bourseActionList;
+            this.BourseActionList = new ObservableCollection<BourseAction>(_bourseActionList);
         }
 
         Page page;

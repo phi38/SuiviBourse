@@ -20,17 +20,17 @@ namespace SuiviBourse.View
     public partial class AlerteListViewPage : ContentPage
     {
         BourseRestService bourseRestService;
-        List<BourseAction> listBourseAction;
-        int count = 0;
-
+        
         MainPageViewModel vm;
+ 
+
         public AlerteListViewPage()
         {
-            listBourseAction = DataSourceMock1.GetBourseActionList();
+            List<BourseAction> listBourseAction;  listBourseAction = DataSourceMock1.GetBourseActionList();
             bourseRestService = new BourseRestService();
             InitializeComponent();
             vm = new MainPageViewModel(this);
-            vm.initListWithRef(ref listBourseAction);
+            vm.InitListWithRef(ref listBourseAction);
             BindingContext = vm;
 
             TimerContext s = new TimerContext();
@@ -39,17 +39,11 @@ namespace SuiviBourse.View
             TimerCallback timerDelegate = new TimerCallback(TimerRaised);
 
             // Create a timer that waits one second, then invokes every second.
-            Timer timer = new Timer(timerDelegate, s, 1000, 1000);
+            Timer timer = new Timer(timerDelegate, s, 20, 20000);
 
             // Keep a handle to the timer, so it can be disposed.
             s.tmr = timer;
 
-        }
-
-        private bool RefreshListes()
-        {
-            Console.WriteLine("OK: " + count++);
-            return true;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -69,14 +63,14 @@ namespace SuiviBourse.View
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            /*
-            listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
-            vm.BourseActionList = listBourseAction;
-            */
-            Console.WriteLine("OK : " + listBourseAction.ToString());
+           
+            //listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
+            //vm.InitListWithRef( ref listBourseAction );
+            
+            
         }
 
-        static void TimerRaised(Object state)
+         async void TimerRaised(Object state)
         {
             TimerContext s = (TimerContext)state;
             
@@ -90,6 +84,22 @@ namespace SuiviBourse.View
             if (s.state == 0)
             {
                 s.state = 1;
+            }
+            else
+            {
+               
+
+                //listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
+              
+                IEnumerator<BourseAction> it = vm.BourseActionList.GetEnumerator();
+
+                List<BourseAction> listBourseAction = await bourseRestService.GetCoursDataAsync(vm.BourseActionList.GetEnumerator());
+                //vm.BourseActionList = null;
+                //vm.BourseActionList = new ObservableCollection<BourseAction>(listBourseAction);
+
+
+                Console.WriteLine("OK : " + "Timer Ring");
+                //vm.BourseActionList.Add(new BourseAction("FR0000120073", "AIR LIQUIDE"));
             }
 
         }
