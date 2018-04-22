@@ -1,6 +1,26 @@
 
 
 ========================================================== 
+ SQL LITE
+ ---------------------------------------------------------
+ choix :
+ https://docs.microsoft.com/fr-fr/xamarin/android/data-cloud/data-access/introduction
+
+ https://blogs.infinitesquare.com/posts/mobile/bonnes-pratiques-pour-gerer-une-base-de-donnees-sqlite-dans-vos-apps-xamarin
+   Microsoft.Data.Sqlite
+   SQLite.NET
+   EFCore
+ creation :
+ https://blogs.infinitesquare.com/posts/windows/comment-gerer-les-montees-de-version-du-stockage-sqlite-des-applications-windows-uwp-ou-non
+
+ COMPLETE
+ 9781785880537-XAMARIN_CROSSPLATFORM_DEVELOPMENT_COOKBOOK.pdf
+ https://code.tutsplus.com/tutorials/an-introduction-to-xamarinforms-and-sqlite--cms-23020
+ TODO ex :https://docs.microsoft.com/fr-fr/xamarin/xamarin-forms/app-fundamentals/databases
+ CRUD :
+ https://msdn.microsoft.com/fr-fr/magazine/mt736454.aspx
+
+========================================================== 
  Timer
  ---------------------------------------------------------
  Device.StartTimer(new TimeSpan(0, 0, 0, 0, 1000), RefreshListes);
