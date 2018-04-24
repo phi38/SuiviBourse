@@ -44,6 +44,15 @@ namespace SuiviBourse.View
             // Keep a handle to the timer, so it can be disposed.
             s.tmr = timer;
 
+
+            // alerte 
+            Task<List<Alerte>>  list =  App.Database.GetItemsAsync();
+           
+
+            var alert = new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15);
+            App.Database.SaveItemAsync(alert);
+
+
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -58,19 +67,23 @@ namespace SuiviBourse.View
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
-
-
+        
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-           
+            //ToolbarItems.Clear();
             //listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
             //vm.InitListWithRef( ref listBourseAction );
+
+
+        }
+        async void OnItemAdded(object sender, EventArgs e)
+        {
             
+            await Navigation.PushAsync(new AlertePage() );
             
         }
-
-         async void TimerRaised(Object state)
+        async void TimerRaised(Object state)
         {
             TimerContext s = (TimerContext)state;
             

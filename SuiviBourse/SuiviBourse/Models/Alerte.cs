@@ -1,11 +1,22 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SuiviBourse.Model
 {
-    class Alerte 
+    public class Alerte 
     {
+
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
+        public float AlerteHCours { get; set; }
+        public float AlerteBCours { get; set; }
+        public float AlerteHVar { get; set; }
+        public float AlerteBVar { get; set; }
+        public string Code { get; set; }
+
+
         public Alerte()
         {
             AlerteHCours = 0;
@@ -16,7 +27,7 @@ namespace SuiviBourse.Model
 
         public Alerte(BourseAction bourseAction)
         {
-            this.bourseAction = bourseAction;
+            //this.bourseAction = bourseAction;
             AlerteHCours = 0;
             AlerteBCours = 0;
             AlerteHVar = 0;
@@ -26,7 +37,7 @@ namespace SuiviBourse.Model
 
         public Alerte(string code, string libelle, float cours, float variation, float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
         {
-            bourseAction = new BourseAction(code, libelle, cours, variation);
+            //bourseAction = new BourseAction(code, libelle, cours, variation);
             AlerteHCours = alerteHCours;
             AlerteBCours = alerteBCours;
             AlerteHVar = alerteHVar;
@@ -35,7 +46,7 @@ namespace SuiviBourse.Model
 
         public Alerte(string code, string libelle , float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
         {
-            bourseAction = new BourseAction(code, libelle);
+          //  bourseAction = new BourseAction(code, libelle);
             AlerteHCours = alerteHCours;
             AlerteBCours =  alerteBCours;
             AlerteHVar= alerteHVar;
@@ -43,16 +54,13 @@ namespace SuiviBourse.Model
         }
 
 
+        /*
 
-        public float AlerteHCours { get; set; }
-        public float AlerteBCours { get; set; }
-        public float AlerteHVar { get; set; }
-        public float AlerteBVar { get; set; }
         public BourseAction BourseAction { get => bourseAction; set => bourseAction = value; }
 
 
         private BourseAction bourseAction;
-
+        */
 
        
     }

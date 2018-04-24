@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuiviBourse.View.AlertePage">
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+            <Label Text="Name" />
+            <Entry Text="{Binding Code}" />
+            <Label Text="AlerteHCours" />
+            <Entry Text="{Binding AlerteHCours}" />
+            <Label Text="AlerteBCours" />
+            <Entry Text="{Binding AlerteBCours}" />
+            <Label Text="AlerteHVar" />
+            <Entry Text="{Binding AlerteHVar}" />
+            <Label Text="AlerteBVar" />
+            <Entry Text="{Binding AlerteBVar}" />
+
+            <Button Text="Save"    Command="{Binding SaveAlerteCommand}"  />
+            <Button Text="Delete"  Command="{Binding DeleteAlerteCommand}" />
+            <Button Text="Cancel"  Command="{Binding CancelAlerteCommand}" />
+          
+        </StackLayout>
+</ContentPage>

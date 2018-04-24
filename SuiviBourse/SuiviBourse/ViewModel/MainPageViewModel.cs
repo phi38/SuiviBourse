@@ -1,5 +1,6 @@
 ﻿using SuiviBourse.DataSource;
 using SuiviBourse.Model;
+using SuiviBourse.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,10 +13,8 @@ namespace SuiviBourse.ViewModel
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
+        public ICommand AddAlerteCommand { get; private set; }
 
-        //private List<BourseAction> bourseActionList;
-
-        //public List<BourseAction> BourseActionList { get => bourseActionList; set => bourseActionList = value; }        //public List<BourseAction> BourseActionList { get; set; }
         public ObservableCollection<BourseAction> BourseActionList { get; set; }
 
         public void InitListWithRef(ref List<BourseAction> _bourseActionList)
@@ -28,10 +27,10 @@ namespace SuiviBourse.ViewModel
         public MainPageViewModel( Page page)
         {
             this.page = page;
-            NewWinCommand = new Command<string>((key) =>
+            AddAlerteCommand = new Command<string>((key) =>
             {
-                //page.Navigation.PushAsync(new AlertListViewPage());
-                //page.DisplayAlert("No Selection", "You did not select any Garages", "OK", null);
+                page.Navigation.PushAsync(new AlertePage( ));
+                
             });
         }
 

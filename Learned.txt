@@ -1,4 +1,9 @@
-
+========================================================== 
+RACCOURCI
+ ---------------------------------------------------------
+ prop
+ ctor
+ CTRL E,C => comment
 
 ========================================================== 
  SQL LITE
@@ -90,3 +95,8 @@ REgHEx or Split
             //var res = doubleArray2[0];
             //float res = (float) Convert.ToDouble(doubleArray2.Take(0));
 
+==========================================================
+REgHEx or Split
+----------------------------------------------------------
+
+https://blog.xamarin.com/simplifying-events-with-commanding/

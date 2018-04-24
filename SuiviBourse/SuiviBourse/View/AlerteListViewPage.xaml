@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SuiviBourse.View.AlerteListViewPage">
-  <ListView x:Name="MyListView"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuiviBourse.View.AlerteListViewPage"  Title="Suivi Bourse">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+                         Name="Icon" 
+                         Icon="plus.png"
+                         Priority="1" 
+                        
+                         />
+    </ContentPage.ToolbarItems>
+
+    <ListView x:Name="MyListView"  Margin="20"
             ItemsSource="{Binding BourseActionList}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement" HasUnevenRows="True"
-
             >
             
     <!--Built in Cells-->
