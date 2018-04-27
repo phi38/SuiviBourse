@@ -12,7 +12,7 @@ namespace SuiviBourse.ViewModel
     class AlerteViewModel : INotifyPropertyChanged
     {
         Page page;
-
+        Alerte alerte;
         public ICommand SaveAlerteCommand { get; private set; }
         public ICommand DeleteAlerteCommand { get; private set; }
         public ICommand CancelAlerteCommand { get; private set; }
@@ -24,20 +24,18 @@ namespace SuiviBourse.ViewModel
             this.page = page;
             SaveAlerteCommand = new Command<string>((key) =>
             {
-                //var todoItem = (TodoItem)BindingContext;
-                //await App.Database.SaveItemAsync(todoItem);
-                //await Navigation.PopAsync();
+                //await 
+                App.Database.SaveItemAsync(alerte);
+                page.Navigation.PopAsync();
             });
             DeleteAlerteCommand = new Command<string>((key) =>
             {
-                //var todoItem = (TodoItem)BindingContext;
-                //await App.Database.DeleteItemAsync(todoItem);
-                //await Navigation.PopAsync();
-
+                App.Database.DeleteItemAsync(alerte);
+                page.Navigation.PopAsync();
             });
             CancelAlerteCommand = new Command<string>((key) =>
             {
-                //await Navigation.PopAsync();
+                 page.Navigation.PopAsync();   //   OR   ...  Application.Current.MainPage.Navigation.PopAsync();
             });
         }
 

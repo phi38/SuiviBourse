@@ -32,7 +32,7 @@ namespace SuiviBourse.View
             vm = new MainPageViewModel(this);
             vm.InitListWithRef(ref listBourseAction);
             BindingContext = vm;
-
+/*
             TimerContext s = new TimerContext();
 
             // Create the delegate that invokes methods for the timer.
@@ -43,15 +43,16 @@ namespace SuiviBourse.View
 
             // Keep a handle to the timer, so it can be disposed.
             s.tmr = timer;
-
+*/
 
             // alerte 
             Task<List<Alerte>>  list =  App.Database.GetItemsAsync();
-           
-
-            var alert = new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15);
-            App.Database.SaveItemAsync(alert);
-
+            list.Result.ToList();
+           // vm.BourseActionList = new ObservableCollection<BourseAction>(list.Result.ToList()) ;
+            /*
+                        var alert = new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15);
+                        App.Database.SaveItemAsync(alert);
+                        */
 
         }
 

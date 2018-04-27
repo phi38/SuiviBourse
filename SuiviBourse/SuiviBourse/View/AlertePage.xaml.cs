@@ -15,6 +15,13 @@ namespace SuiviBourse.View
     public partial class AlertePage : ContentPage
     {
         AlerteViewModel vm;
+       
+        public AlertePage( Alerte alerte)
+        {
+            InitializeComponent();
+            vm = new AlerteViewModel(this, alerte);
+            BindingContext = vm;
+        }
 
         public AlertePage()
         {
@@ -23,6 +30,6 @@ namespace SuiviBourse.View
             BindingContext = vm;
         }
 
-        
+
     }
 }
