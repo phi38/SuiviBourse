@@ -3,17 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SuiviBourse.View.AlertePage">
         <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+        <Label Text="{Binding alerte.Code}"   />
         <Grid  >
             <Label Text="Name" Grid.Row="0" Grid.Column="0"  />
-            <Entry Text="{Binding Code}"  Grid.Row="0" Grid.Column="1" />
+            <Entry Text="{Binding alerte.Libelle}"  Grid.Row="0" Grid.Column="1" />
             <Label Text="AlerteHCours"  Grid.Row="1" Grid.Column="0" />
-            <Entry Text="{Binding AlerteHCours}"  Grid.Row="1" Grid.Column="1"  />
+            <Entry Text="{Binding alerte.AlerteHCours}"  Grid.Row="1" Grid.Column="1"  />
             <Label Text="AlerteBCours"  Grid.Row="2" Grid.Column="0" />
-            <Entry Text="{Binding AlerteBCours}"  Grid.Row="2" Grid.Column="1" />
+            <Entry Text="{Binding alerte.AlerteBCours}"  Grid.Row="2" Grid.Column="1" />
             <Label Text="AlerteHVar"  Grid.Row="3" Grid.Column="0" />
-            <Entry Text="{Binding AlerteHVar}"  Grid.Row="3" Grid.Column="1" />
+            <Entry Text="{Binding alerte.AlerteHVar}"  Grid.Row="3" Grid.Column="1" />
             <Label Text="AlerteBVar"  Grid.Row="4" Grid.Column="0" />
-            <Entry Text="{Binding AlerteBVar}"  Grid.Row="4" Grid.Column="1" />
+            <Entry Text="{Binding alerte.AlerteBVar}"  Grid.Row="4" Grid.Column="1" />
         </Grid>
         <Button Text="Save"    Command="{Binding SaveAlerteCommand}"  />
         <Button Text="Delete"  Command="{Binding DeleteAlerteCommand}" />

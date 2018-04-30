@@ -1,5 +1,6 @@
 ﻿using SuiviBourse.DataSource;
 using SuiviBourse.Model;
+using SuiviBourse.Models;
 using SuiviBourse.View;
 using System;
 using System.Collections.Generic;
@@ -15,24 +16,37 @@ namespace SuiviBourse.ViewModel
     {
         public ICommand AddAlerteCommand { get; private set; }
 
-        public ObservableCollection<BourseAction> BourseActionList { get; set; }
+        public ObservableCollection<AlerteCotation> AlerteList { get; set; }
 
-        public void InitListWithRef(ref List<BourseAction> _bourseActionList)
+        public void InitListWithRef( List<Alerte> _bourseALerteList)
         {
-            this.BourseActionList = new ObservableCollection<BourseAction>(_bourseActionList);
+            this.AlerteList.Clear();
+            Cotation cotation; // = new Cotation("FR0000120073", "AirLiquide", 105, -5);
+            foreach ( Alerte alert in _bourseALerteList)
+            {
+                cotation = App.getCotation(alert.Code);
+                this.AlerteList.Add(new AlerteCotation(alert, cotation) );
+            }
+            
         }
 
         Page page;
-        public ICommand NewWinCommand { protected set; get; }
+
+
+
         public MainPageViewModel( Page page)
         {
             this.page = page;
+            this.AlerteList = new ObservableCollection<AlerteCotation>();
+            //this.AlerteList = new ObservableCollection<Alerte>(DataSourceMock1.GetAlerteList());
+
             AddAlerteCommand = new Command<string>((key) =>
             {
-                page.Navigation.PushAsync(new AlertePage( ));
+                page.Navigation.PushAsync(new AlertePage( new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));
                 
             });
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

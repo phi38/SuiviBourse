@@ -100,3 +100,9 @@ REgHEx or Split
 ----------------------------------------------------------
 
 https://blog.xamarin.com/simplifying-events-with-commanding/
+
+==========================================================
+Presentation
+----------------------------------------------------------
+
+ <Label Text="{Binding Year, StringFormat='The year is {0}'}" />

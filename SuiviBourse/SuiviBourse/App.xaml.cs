@@ -1,5 +1,6 @@
 ﻿using SuiviBourse.DataSource;
 using SuiviBourse.Helpers;
+using SuiviBourse.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,8 @@ namespace SuiviBourse
 	public partial class App : Application
 	{
         private static AlerteBourseDB database;
+        public  static  Dictionary<string, Cotation> CotationMap= new Dictionary<string,Cotation>();
+
 
         public App ()
 		{
@@ -36,6 +39,24 @@ namespace SuiviBourse
                 return database;
             }
         }
+
+        public static Dictionary<string, Cotation> CotationMap1 { get => CotationMap; set => CotationMap = value; }
+
+        public static Cotation getCotation( String code)
+        {
+            Cotation cotation = new Cotation(code); 
+            if (CotationMap.ContainsKey(code))
+            {
+                 CotationMap.TryGetValue(code, out cotation) ;
+            }
+            else
+            {
+                CotationMap.Add(code, cotation);
+            }
+            return cotation;
+        }
+
+
 
         protected override void OnStart ()
 		{

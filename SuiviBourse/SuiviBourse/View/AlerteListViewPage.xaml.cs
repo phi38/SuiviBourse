@@ -26,13 +26,16 @@ namespace SuiviBourse.View
 
         public AlerteListViewPage()
         {
-            List<BourseAction> listBourseAction;  listBourseAction = DataSourceMock1.GetBourseActionList();
+
             bourseRestService = new BourseRestService();
+
+            //List<Cotation> listBourseAction;  listBourseAction = DataSourceMock1.GetBourseActionList();
+
             InitializeComponent();
             vm = new MainPageViewModel(this);
-            vm.InitListWithRef(ref listBourseAction);
+            //vm.InitListWithRef(ref listBourseAction);
             BindingContext = vm;
-/*
+
             TimerContext s = new TimerContext();
 
             // Create the delegate that invokes methods for the timer.
@@ -43,17 +46,6 @@ namespace SuiviBourse.View
 
             // Keep a handle to the timer, so it can be disposed.
             s.tmr = timer;
-*/
-
-            // alerte 
-            Task<List<Alerte>>  list =  App.Database.GetItemsAsync();
-            list.Result.ToList();
-           // vm.BourseActionList = new ObservableCollection<BourseAction>(list.Result.ToList()) ;
-            /*
-                        var alert = new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15);
-                        App.Database.SaveItemAsync(alert);
-                        */
-
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -72,6 +64,8 @@ namespace SuiviBourse.View
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            List<Alerte> listAlerte = await App.Database.GetItemsAsync();
+            vm.InitListWithRef( listAlerte );
             //ToolbarItems.Clear();
             //listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
             //vm.InitListWithRef( ref listBourseAction );
@@ -101,19 +95,20 @@ namespace SuiviBourse.View
             }
             else
             {
+                ICollection<Cotation> icoll = App.CotationMap.Values; 
+                foreach ( Cotation cot in icoll)
+                {
+                    await bourseRestService.GetCoursDataAsync(cot);
+                }
                
-
-                //listBourseAction = await bourseRestService.GetCoursDataAsync(listBourseAction);
               
-                IEnumerator<BourseAction> it = vm.BourseActionList.GetEnumerator();
+              //  
 
-                List<BourseAction> listBourseAction = await bourseRestService.GetCoursDataAsync(vm.BourseActionList.GetEnumerator());
-                //vm.BourseActionList = null;
-                //vm.BourseActionList = new ObservableCollection<BourseAction>(listBourseAction);
-
+              //  List<Cotation> listBourseAction = await bourseRestService.GetCoursDataAsync(vm.BourseActionList.GetEnumerator());
+              
 
                 Console.WriteLine("OK : " + "Timer Ring");
-                //vm.BourseActionList.Add(new BourseAction("FR0000120073", "AIR LIQUIDE"));
+               
             }
 
         }

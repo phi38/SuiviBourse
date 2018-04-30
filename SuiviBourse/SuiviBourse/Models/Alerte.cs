@@ -15,6 +15,7 @@ namespace SuiviBourse.Model
         public float AlerteHVar { get; set; }
         public float AlerteBVar { get; set; }
         public string Code { get; set; }
+        public string Libelle { get; set; }
 
 
         public Alerte()
@@ -25,17 +26,9 @@ namespace SuiviBourse.Model
             AlerteBVar = 0;
         }
 
-        public Alerte(BourseAction bourseAction)
-        {
-            //this.bourseAction = bourseAction;
-            AlerteHCours = 0;
-            AlerteBCours = 0;
-            AlerteHVar = 0;
-            AlerteBVar = 0;
-        }
 
 
-        public Alerte(string code, string libelle, float cours, float variation, float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
+        public Alerte(string code, string libelle, float cours, float variation, float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar) : this( code,  libelle,   alerteHCours,  alerteBCours,  alerteHVar,  alerteBVar)
         {
             //bourseAction = new BourseAction(code, libelle, cours, variation);
             AlerteHCours = alerteHCours;
@@ -44,8 +37,9 @@ namespace SuiviBourse.Model
             AlerteBVar = alerteBVar;
         }
 
-        public Alerte(string code, string libelle , float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar)
+        public Alerte(string code, string libelle , float alerteHCours, float alerteBCours, float alerteHVar, float alerteBVar) : this(code, libelle)
         {
+          
           //  bourseAction = new BourseAction(code, libelle);
             AlerteHCours = alerteHCours;
             AlerteBCours =  alerteBCours;
@@ -53,15 +47,13 @@ namespace SuiviBourse.Model
             AlerteBVar= alerteBVar;
         }
 
+        public Alerte(string code, string libelle)
+        {
+            this.Code = code;
+            this.Libelle = libelle;
+        }
 
-        /*
-
-        public BourseAction BourseAction { get => bourseAction; set => bourseAction = value; }
 
 
-        private BourseAction bourseAction;
-        */
-
-       
     }
 }

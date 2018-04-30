@@ -12,16 +12,18 @@ namespace SuiviBourse.ViewModel
     class AlerteViewModel : INotifyPropertyChanged
     {
         Page page;
-        Alerte alerte;
+        public Alerte alerte { get; set; }
         public ICommand SaveAlerteCommand { get; private set; }
         public ICommand DeleteAlerteCommand { get; private set; }
         public ICommand CancelAlerteCommand { get; private set; }
 
 
 
-        public AlerteViewModel(Page page, Alerte alerte)
+        public AlerteViewModel(Page page, Alerte _alerte)
         {
             this.page = page;
+            alerte = _alerte;
+            
             SaveAlerteCommand = new Command<string>((key) =>
             {
                 //await 

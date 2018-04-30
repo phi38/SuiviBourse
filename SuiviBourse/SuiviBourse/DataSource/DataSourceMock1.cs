@@ -17,14 +17,27 @@ namespace SuiviBourse.DataSource
 
 
 
-        public static List<BourseAction> GetBourseActionList()
+        public static List<Cotation> GetBourseActionList()
         {
-            List<BourseAction> listAlert = new List<BourseAction>()
+            List<Cotation> listAlert = new List<Cotation>()
             {
-                new BourseAction ("FR0000120073", "AIR LIQUIDE"),
-                new BourseAction ("FR0010241638", "Mercialys"),
-                new BourseAction ("FR0000060402", "Albioma"),
-                new BourseAction ("FR0011726835", "GTT")
+                new Cotation ("FR0000120073", "AIR LIQUIDE"),
+                new Cotation ("FR0010241638", "Mercialys"),
+                new Cotation ("FR0000060402", "Albioma"),
+                new Cotation ("FR0011726835", "GTT")
+
+            };
+            return listAlert;
+        }
+
+        public static List<Alerte> GetAlerteList()
+        {
+            List<Alerte> listAlert = new List<Alerte>()
+            {
+                new Alerte ("FR0000120073", "AIR LIQUIDE"),
+                new Alerte ("FR0010241638", "Mercialys"),
+                new Alerte ("FR0000060402", "Albioma"),
+                new Alerte ("FR0011726835", "GTT")
 
             };
             return listAlert;

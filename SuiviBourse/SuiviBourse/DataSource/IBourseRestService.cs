@@ -8,6 +8,6 @@ namespace SuiviBourse.DataSource
 {
     public interface IBourseRestService
     {
-        Task<List<BourseAction>> GetCoursDataAsync(List<BourseAction> list);
+        Task<List<Cotation>> GetCoursDataAsync(List<Cotation> list);
     }
 }

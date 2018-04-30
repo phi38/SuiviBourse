@@ -23,31 +23,31 @@ namespace SuiviBourse.DataSource
         }
 
 
-        public async Task<List<BourseAction>> GetCoursDataAsync(List<BourseAction> list)
+        public async Task<List<Cotation>> GetCoursDataAsync(List<Cotation> list)
         {
-            List < BourseAction > listres = new List<BourseAction>();
-            foreach (BourseAction action in list)
+            List < Cotation > listres = new List<Cotation>();
+            foreach (Cotation action in list)
             {
-                BourseAction actionRes  = await GetCoursDataAsync(action);
+                Cotation actionRes  = await GetCoursDataAsync(action);
                 listres.Add(actionRes);
             }
             return listres;
         }
 
 
-        public async Task<List<BourseAction>> GetCoursDataAsync(IEnumerator<BourseAction> it)
+        public async Task<List<Cotation>> GetCoursDataAsync(IEnumerator<Cotation> it)
         {
-            List<BourseAction> listres = new List<BourseAction>();
+            List<Cotation> listres = new List<Cotation>();
             while (it.MoveNext())
             {
-                BourseAction actionRes = await GetCoursDataAsync(it.Current);
+                Cotation actionRes = await GetCoursDataAsync(it.Current);
                 listres.Add(actionRes);
             }
             return listres;
         }
 
         
-        public async Task<BourseAction> GetCoursDataAsync(BourseAction actionBourse)
+        public async Task<Cotation> GetCoursDataAsync(Cotation actionBourse)
         { 
 
             var uri = new Uri(URI_ALERT+actionBourse.Code);

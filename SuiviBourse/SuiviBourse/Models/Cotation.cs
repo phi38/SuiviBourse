@@ -5,23 +5,29 @@ using System.Text;
 
 namespace SuiviBourse.Model
 {
-    public class BourseAction : INotifyPropertyChanged
+    public class Cotation : INotifyPropertyChanged
     {
-        public BourseAction()
+        public Cotation()
         {
             Cours = 0;
             Variation = 0;
         }
 
-        public BourseAction(string code, string libelle)
+        public Cotation(string code, string libelle)
         {
             Code = code;
             Libelle = libelle;
+            Cours = 0; 
+            Variation = 0;
+        }
+        public Cotation(string code)  
+        {
+            Code = code;
+            Libelle = "--";
             Cours = 0;
             Variation = 0;
         }
-
-        public BourseAction(string code, string libelle, float cours, float variation)
+        public Cotation(string code, string libelle, float cours, float variation)
         {
             Code = code;
             Libelle = libelle;
