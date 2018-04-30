@@ -1,17 +1,16 @@
 
 V1
 --------------------------
-* CREATION DUNE LISTE
 
-- sqllite rwd
+Button Start/stop refresh
+Liste de portefeuille
+Navigation entre les pages ( ALerte1&2 portefeuille1&2 Config)
 
 
-M
-- edit / del / add : Alerte
 =>
 -	item list mis en forme
 =>
-- icone
+
 
 
 

@@ -13,6 +13,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.Generic;
 using System.Threading;
+using SuiviBourse.Models;
 
 namespace SuiviBourse.View
 {
@@ -53,11 +54,10 @@ namespace SuiviBourse.View
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            //await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
 
-            //DataSourceMock1.GetAllNewsAsync();
+            Navigation.PushAsync(new AlertePage( ( ((AlerteCotation)e.Item)).Alerte));
 
-            //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
         

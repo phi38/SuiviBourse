@@ -16,8 +16,8 @@
             <Label Text="AlerteBVar"  Grid.Row="4" Grid.Column="0" />
             <Entry Text="{Binding alerte.AlerteBVar}"  Grid.Row="4" Grid.Column="1" />
         </Grid>
-        <Button Text="Save"    Command="{Binding SaveAlerteCommand}"  />
-        <Button Text="Delete"  Command="{Binding DeleteAlerteCommand}" />
+        <Button Text="Save"    Command="{Binding SaveAlerteCommand}" />
+        <Button Text="Delete"  Command="{Binding DeleteAlerteCommand}"  />
         <Button Text="Cancel"  Command="{Binding CancelAlerteCommand}" />
          
         </StackLayout>
