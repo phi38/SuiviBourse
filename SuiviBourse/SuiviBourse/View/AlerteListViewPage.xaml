@@ -4,9 +4,28 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding AddAlerteCommand}" 
                          Name="Icon" 
-                         Icon="plus.png"
+                         Icon="wallet.png"
                          Priority="1" 
-                        
+                         />
+        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+                         Name="Icon" 
+                         Icon="conf.png"
+                         Priority="1" 
+                         />
+        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+                         Name="Icon" 
+                         Icon="help.png"
+                         Priority="1" 
+                         />
+        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+                         Name="Icon" 
+                         Icon="add.png"
+                         Priority="1" 
+                         />
+        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+                         Name="Icon" 
+                         Icon="play.png"
+                         Priority="1" 
                          />
     </ContentPage.ToolbarItems>
 

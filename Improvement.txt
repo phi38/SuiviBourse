@@ -5,3 +5,5 @@
  * Injection de dependance (liste action)
  * Timer passer la method dans la structure 
  * les fct d'acces a la base en await 
+ * option heure de debut et fin
+ * liste des alertes partitionné 
