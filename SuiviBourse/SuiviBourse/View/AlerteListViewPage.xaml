@@ -2,17 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SuiviBourse.View.AlerteListViewPage"  Title="Suivi Bourse">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+        <ToolbarItem Command="{Binding WalletCommand}" 
                          Name="Icon" 
                          Icon="wallet.png"
                          Priority="1" 
                          />
-        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+        <ToolbarItem Command="{Binding ConfigCommand}" 
                          Name="Icon" 
                          Icon="conf.png"
                          Priority="1" 
                          />
-        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+        <ToolbarItem Command="{Binding HelpCommand}" 
                          Name="Icon" 
                          Icon="help.png"
                          Priority="1" 
@@ -22,7 +22,7 @@
                          Icon="add.png"
                          Priority="1" 
                          />
-        <ToolbarItem Command="{Binding AddAlerteCommand}" 
+        <ToolbarItem Command="{Binding StartStopCommand}" 
                          Name="Icon" 
                          Icon="play.png"
                          Priority="1" 

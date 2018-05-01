@@ -14,8 +14,11 @@ namespace SuiviBourse.ViewModel
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
+        public ICommand ConfigCommand { get; private set; }
+        public ICommand HelpCommand { get; private set; }
+        public ICommand WalletCommand { get; private set; }
+        public ICommand StartStopCommand { get; private set; }
         public ICommand AddAlerteCommand { get; private set; }
-
         public ObservableCollection<AlerteCotation> AlerteList { get; set; }
 
         public void InitListWithRef( List<Alerte> _bourseALerteList)
@@ -42,9 +45,25 @@ namespace SuiviBourse.ViewModel
 
             AddAlerteCommand = new Command<string>((key) =>
             {
-                page.Navigation.PushAsync(new AlertePage( new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));
-                
+                page.Navigation.PushAsync(new AlertePage( new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));  
             });
+            ConfigCommand = new Command<string>((key) =>
+            {
+                page.Navigation.PushAsync(new AlertePage(new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));
+            });
+            HelpCommand = new Command<string>((key) =>
+            {
+                page.Navigation.PushAsync(new AlertePage(new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));
+            });
+            WalletCommand = new Command<string>((key) =>
+            {
+                page.Navigation.PushAsync(new AlertePage(new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));
+            });
+            StartStopCommand = new Command<string>((key) =>
+            {
+                page.Navigation.PushAsync(new AlertePage(new Alerte("FR0000120073", "AirLiquide", 105, 0, 10, 10, 15, 15)));
+            });
+
         }
 
 

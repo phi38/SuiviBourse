@@ -1,24 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SuiviBourse.View.AlertePage">
-        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
-        <Label Text="{Binding alerte.Code}"   />
-        <Grid  >
-            <Label Text="Name" Grid.Row="0" Grid.Column="0"  />
-            <Entry Text="{Binding alerte.Libelle}"  Grid.Row="0" Grid.Column="1" />
-            <Label Text="AlerteHCours"  Grid.Row="1" Grid.Column="0" />
-            <Entry Text="{Binding alerte.AlerteHCours}"  Grid.Row="1" Grid.Column="1"  />
-            <Label Text="AlerteBCours"  Grid.Row="2" Grid.Column="0" />
-            <Entry Text="{Binding alerte.AlerteBCours}"  Grid.Row="2" Grid.Column="1" />
-            <Label Text="AlerteHVar"  Grid.Row="3" Grid.Column="0" />
-            <Entry Text="{Binding alerte.AlerteHVar}"  Grid.Row="3" Grid.Column="1" />
+             x:Class="SuiviBourse.View.AlertePage" >
+
+       
+    <ScrollView >
+        
+        <Grid VerticalOptions="StartAndExpand" >
+              <Grid.RowDefinitions>
+            <RowDefinition Height = "Auto"  />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions> 
+            <Label Text="Name" Grid.Row="0" Grid.Column="0"  VerticalOptions="CenterAndExpand" />
+            <Entry Text="{Binding alerte.Libelle}"  Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" />
+            <Label Text="AlerteHCours"  Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand" />
+            <Entry Text="{Binding alerte.AlerteHCours}"  Grid.Row="1" Grid.Column="1"  VerticalOptions="CenterAndExpand" />
+            <Label Text="AlerteBCours"  Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand" />
+            <Entry Text="{Binding alerte.AlerteBCours}"  Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand" />
+            <Label Text="AlerteHVar"  Grid.Row="3" Grid.Column="0" VerticalOptions="CenterAndExpand" />
+            <Entry Text="{Binding alerte.AlerteHVar}"  Grid.Row="3" Grid.Column="1" VerticalOptions="CenterAndExpand" />
             <Label Text="AlerteBVar"  Grid.Row="4" Grid.Column="0" />
-            <Entry Text="{Binding alerte.AlerteBVar}"  Grid.Row="4" Grid.Column="1" />
+            <Entry Text="{Binding alerte.AlerteBVar}"  Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand" />
+            <Button Text="Save"    Command="{Binding SaveAlerteCommand}"  Grid.Row="5"  Grid.ColumnSpan="2"/>
+            <Button Text="Delete"  Command="{Binding DeleteAlerteCommand}"  Grid.Row="6" Grid.ColumnSpan="2"/>
+            <Button Text="Cancel"  Command="{Binding CancelAlerteCommand}" Grid.Row="7" Grid.ColumnSpan="2"/>
         </Grid>
-        <Button Text="Save"    Command="{Binding SaveAlerteCommand}" />
-        <Button Text="Delete"  Command="{Binding DeleteAlerteCommand}"  />
-        <Button Text="Cancel"  Command="{Binding CancelAlerteCommand}" />
-         
-        </StackLayout>
-</ContentPage>
+    </ScrollView>
+  </ContentPage>
